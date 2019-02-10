@@ -19,16 +19,22 @@ int manager::start() {
            << "\n5 - Display all vehicles"
            << "\n\n6 - Exit\n";
       cin >> choice; cin.ignore(100, '\n');
+      //lets the user test the functionalities
+      //add fucntion
       if(choice == 1)
          add_new();
+      //search function retrieves a vehicle
       if(choice == 2) {
          cout << "\n\nID # to retrieve?  ";
          int to_find;
          cin >> to_find; cin.ignore(100, '\n');
+         //this ptr respresents a vehicle that is being searched for
          vehicle * current = retrieve(head, to_find);
+         //if the vehicle was not found
          if(!current) 
             cout << "\nID # not found in list\n";
-         else {
+         //else if the vehicle was found
+         else { 
             cout << "\nvehicle found, display? (y/n)  " ;
             char choice;
             cin >> choice; cin.ignore(100, '\n');
@@ -36,6 +42,7 @@ int manager::start() {
                current -> display();
          }
       }
+      //remove function
       if(choice == 3) {
          cout << "\nEnter an ID # to remove: " ;
          int to_remove;
@@ -47,6 +54,7 @@ int manager::start() {
          else 
             cout << "\nID # entered was not found in list\n";
       }
+      //manage vehicles function
       if(choice == 4) { 
          cout << "\nwhich vehicle ID# is being used?  ";
          int to_find;
@@ -57,6 +65,7 @@ int manager::start() {
          else
             current -> new_use();
       }
+      //display all function
       if(choice == 5)
          display_all(head);
    }
